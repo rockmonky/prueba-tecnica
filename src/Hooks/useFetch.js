@@ -30,7 +30,8 @@ export function useFetch(url) {
 
     // Función para transformar un array de objetos
     function transformData(data) {
-        return data.map(toCamelCase);
+
+        return Array.isArray(data) ? data.map(toCamelCase) : data;
     }
 
     return { data, loading, error };
