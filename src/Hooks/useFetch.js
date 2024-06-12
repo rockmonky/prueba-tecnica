@@ -11,12 +11,12 @@ export function useFetch(url) {
             .then((response) => response.json())
             .then((data => {
                 const transformedData = transformData(data.data)
-                console.log(transformedData);
+                // console.log(transformedData);
                 setData(transformedData)
             }))
             .catch((error) => setError(error))
             .finally(() => setLoading(false));
-    }, []);
+    }, [url]);
 
     // Función para convertir las claves de un objeto de PascalCase a camelCase
     function toCamelCase(obj) {

@@ -1,11 +1,12 @@
+import { RxHeart } from 'react-icons/rx'
 
 
 
 
-export default function InputSearchComponent({ search, filteredBooks }) {
+export default function InputSearchComponent({ search, filteredBooks, changeMyFavoriteBooks, favoritesBooks }) {
 
     return (
-        <div className="mb-3 xl:w-96">
+        <div className="flex mb-3 xl:w-96">
             <div className="relative mb-4 flex w-full flex-wrap items-stretch">
                 <input
                     type="search"
@@ -32,6 +33,12 @@ export default function InputSearchComponent({ search, filteredBooks }) {
                     </svg>
                 </span>
             </div>
+
+            {
+                favoritesBooks ? <RxHeart className='text-red-500 text-3xl cursor-pointer' onClick={() => changeMyFavoriteBooks()} /> : <RxHeart className='text-white text-3xl cursor-pointer' onClick={() => changeMyFavoriteBooks()} />
+
+            }
+
         </div>
     )
 }
